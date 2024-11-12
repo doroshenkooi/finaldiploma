@@ -1,27 +1,24 @@
-import { exportArraytickets } from './client_hall.js';
+import { exportArraytickets } from "./client_hall.js";
 document.addEventListener("DOMContentLoaded", function () {
-    const Arraytickets = exportArraytickets();
-console.log(Arraytickets);
-    //const Arraytickets = JSON.parse(localStorage.getItem('Arraytickets'));
+  const Arraytickets = exportArraytickets();
+  console.log(Arraytickets);
 
-const arrayQrcode = Arraytickets.map((item) => {
+  const arrayQrcode = Arraytickets.map((item) => {
     return {
       "Название фильма": item.filmname,
-      "Зал": item.hallname,
-      "Ряд": item.row,
-      "Место": item.place,
-      "Стоимость": item.price,
+      Зал: item.hallname,
+      Ряд: item.row,
+      Место: item.place,
+      Стоимость: item.price,
     };
   });
   arrayQrcode.unshift("Билет действителен строго на свой сеанс");
-  
-  Arraytickets.forEach(ticket => {
- 
-const paymentFrame = document.querySelector('.payment-frame');
-const ticketInfoWrapper = document.createElement("div");
-ticketInfoWrapper.className = "ticket__info-wrapper";
-ticketInfoWrapper.innerHTML =
-`<div class="ticket__info-wrapper">
+
+  Arraytickets.forEach((ticket) => {
+    const paymentFrame = document.querySelector(".payment-frame");
+    const ticketInfoWrapper = document.createElement("div");
+    ticketInfoWrapper.className = "ticket__info-wrapper";
+    ticketInfoWrapper.innerHTML = `<div class="ticket__info-wrapper">
             <div class="ticket__info-film_name">
                     <span class="ticket__info-film-name_text">На фильм: ${ticket.filmname}</span>
             </div>
@@ -44,27 +41,25 @@ ticketInfoWrapper.innerHTML =
         </div>
   </div> `;
 
-        paymentFrame.append(ticketInfoWrapper);
-       
-       
-});
- console.log(Arraytickets);
+    paymentFrame.append(ticketInfoWrapper);
+  });
+  console.log(Arraytickets);
 
-console.log(arrayQrcode);
-const qrcode1 = QRCreator(JSON.stringify(arrayQrcode),
-{ mode: 4,
-eccl: 0,
-version: -1,
-mask: -1,
-image: 'svg',
-modsize: -1,
-margin: 0
-});
-const content = (qrcode) =>{
-    return qrcode.error ?
-      `недопустимые исходные данные ${qrcode.error}`:
-       qrcode.result;
+  console.log(arrayQrcode);
+  const qrcode1 = QRCreator(JSON.stringify(arrayQrcode), {
+    mode: 4,
+    eccl: 0,
+    version: -1,
+    mask: -1,
+    image: "svg",
+    modsize: -1,
+    margin: 0,
+  });
+  const content = (qrcode) => {
+    return qrcode.error
+      ? `недопустимые исходные данные ${qrcode.error}`
+      : qrcode.result;
   };
-  
-  document.getElementById('qrcode1').append( 'QR - КОД', content(qrcode1));
- }) 
+
+  document.getElementById("qrcode1").append("QR - КОД", content(qrcode1));
+});
