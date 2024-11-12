@@ -552,6 +552,17 @@ h5 {
     position: relative;
 }
 
+.explanation {
+    width: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.55rem;
+    line-height: 18px;
+    color: #000000;
+    margin: 0;
+}
+
 .choise-hall-configure, 
 .price-configur {
 

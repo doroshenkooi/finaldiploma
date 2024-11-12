@@ -8,6 +8,7 @@ body {
   background-image: url(./im/background-client.jpeg);
   background-repeat: no-repeat;
   background-size: cover; 
+  overflow-x: hidden;
   }
   
   .go_cinema-header {
@@ -36,7 +37,7 @@ body {
   align-items: flex-start;
   padding: 0px;
   
-  width: 962px;
+  width: 100%; /*962px;*/
   height: 40px;
   
   }
@@ -246,7 +247,7 @@ body {
   position: relative;
   width: 990px;
   height: 1028px;
-  left: calc(50% - 990px/2);
+  left: calc(50% - 890px/2);;/*calc(50% - 990px/2);/*/
   top: calc(50% - 1028px/2 + 78.5px);
   
    } 
@@ -256,7 +257,7 @@ body {
 /* Section */
 
 width: 990px;
-height: 350px;
+height: auto;/*350*/
 
 /* Colors 2/Pampas 95% */
 background: rgba(241, 235, 230, 0.95);
@@ -277,9 +278,14 @@ border-radius: 2px;
   
   position: absolute;
   height: 205px;
-  left: 555px; /*изначально быо 15px*/
+  left: 15px; 
   right: 15px;
   top: 15px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  z-index: 1;
   
    }
   
@@ -292,7 +298,7 @@ border-radius: 2px;
   align-items: flex-start;
   padding: 0px 0px 30px;
   isolation: isolate;
-  
+  margin-left: 15px;
   width: 125px;
   height: 205px;
   
@@ -313,11 +319,11 @@ border-radius: 2px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 0px 104.4px 15px;
+  padding: 0px 0px auto 15px;/*0px 0px 104.4px 15px*/
   gap: 10px;
-  
+  margin-left: 15px;
   width: 835px;
-  height: 205px;
+  height: auto;/*205px*/
   
   
  
@@ -325,7 +331,7 @@ border-radius: 2px;
   
    .poster_next {
     /* poster1.jpg */
-  
+
   width: 125px;
   height: 175px;
   
@@ -506,7 +512,7 @@ top: 240px;/*изначально 190*/
 .movie_seances-text {
   /* Зал 1 */
 
-width: 41px;
+width: auto;/*41px*/
 max-width: 960px;
 height: 18px;
 max-height: 18.4px;
@@ -532,18 +538,18 @@ flex-grow: 0;
 
 }
 
-.list {
+.list0, .list1, .list2, .list3, .list4   {
  /* List */
 
 /* Auto layout */
 display: flex;
-flex-direction: row;
+flex-direction: column;
 align-items: flex-start;
 padding: 0px 734.7px 4px 0px;
 gap: 4px;
-
+margin-left: 18px;
 width: 960px;
-height: 37px;
+height: auto;
 }
 
 .item {
@@ -552,7 +558,7 @@ height: 37px;
 /* Auto layout */
 display: flex;
 flex-direction: row;
-align-items: flex-start;
+/*align-items: flex-start;*/
 padding: 0px;
 
 width: 53px;
@@ -567,8 +573,8 @@ flex-direction: column;
 align-items: flex-start;
 padding: 7.2px 7.33px 8.05px 8px;
 justify-content: center;
-width: 53px;
-height: 33px;
+width: 100%;/*53px*/
+height: auto;/*33px*/
 
 /* Colors 2/Nero */
 background: #FFFFFF;

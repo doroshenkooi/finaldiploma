@@ -145,9 +145,7 @@ authorizationBtn.addEventListener('click', (event) => {
         e.preventDefault();
 
         const movieId = e.dataTransfer.getData("text");
-        const originalMovie = document
-          .getElementById(movieId)
-          .querySelector(".movie-combo");
+        const originalMovie = document.getElementById(movieId).querySelector(".movie-combo");
         if (originalMovie) {
           const duplicateMovie = originalMovie.cloneNode(true);
           const newMovieContainer = document.createElement("div");
@@ -356,8 +354,8 @@ function handleChairClick(event) {
   }
 }
 
-// Кнопка 'Зал'
-function choiceOneHallBtnClick() {
+// Кнопка 'Зал' 
+function choiceOneHallBtnClick() {     //Нажать на кнопку после введения количества строк и мест
   const rows = parseInt(pointRowInput.value);
   const chairsPerRow = parseInt(pointChairsInput.value);
 
@@ -539,7 +537,7 @@ movieSend.addEventListener("click", function (event) {
         e.dataTransfer.setData("text/plain", e.target.closest(".movie-one").id);
       }
     },
-    { once: true }
+   // { once: true }
   );
   // добавление постера
   const reader = new FileReader();
@@ -631,21 +629,3 @@ openSalesTickets.addEventListener("click", () => {
     });
 });
 };
-/*
-function exportSeanceID() {
-  const seanceId = window.localStorage.getItem("idSeance");
- return seanceId;
-};
-
-function exporthallID() {
-  const hallID = window.localStorage.getItem("IDHall");
- return hallID;
-};
-
-function exportfilmID() {
-  const filmID = JSON.parse(window.localStorage.getItem("IDFilm"));
- return filmID;
-};
-
-export { exportSeanceID, exporthallID, exportfilmID };
-*/
